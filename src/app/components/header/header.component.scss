@@ -1,0 +1,14 @@
+.header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    position: relative;
+
+    &__logo {
+        position: absolute;
+        top: 25%;
+        left: 1rem;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+}

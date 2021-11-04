@@ -1,0 +1,638 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [],
+    "classes": [
+        {
+            "name": "MealState",
+            "id": "class-MealState-d22fcf39ed6e34285fbd2baf808f4909",
+            "file": "src/app/state/meal.state.ts",
+            "type": "class",
+            "sourceCode": "import { Selector, State } from \"@ngxs/store\";\r\n\r\nexport class MealStateModel {\r\n\r\n    title: string;\r\n    catalog: any;\r\n\r\n}\r\n\r\n\r\n@State<MealStateModel>({\r\n    name: 'meals',\r\n    defaults: {\r\n        title: 'Meal App',\r\n        catalog: null\r\n    }\r\n})\r\nexport class MealState {\r\n    @Selector()\r\n    static title(state: MealStateModel) {\r\n        return state.title;\r\n    }\r\n}",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "title",
+                    "args": [
+                        {
+                            "name": "state",
+                            "type": "MealStateModel"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 20,
+                    "decorators": [
+                        {
+                            "name": "Selector",
+                            "stringifiedArguments": ""
+                        }
+                    ],
+                    "modifierKind": [
+                        115
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "state",
+                            "type": "MealStateModel",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "indexSignatures": []
+        },
+        {
+            "name": "MealStateModel",
+            "id": "class-MealStateModel-d22fcf39ed6e34285fbd2baf808f4909",
+            "file": "src/app/state/meal.state.ts",
+            "type": "class",
+            "sourceCode": "import { Selector, State } from \"@ngxs/store\";\r\n\r\nexport class MealStateModel {\r\n\r\n    title: string;\r\n    catalog: any;\r\n\r\n}\r\n\r\n\r\n@State<MealStateModel>({\r\n    name: 'meals',\r\n    defaults: {\r\n        title: 'Meal App',\r\n        catalog: null\r\n    }\r\n})\r\nexport class MealState {\r\n    @Selector()\r\n    static title(state: MealStateModel) {\r\n        return state.title;\r\n    }\r\n}",
+            "properties": [
+                {
+                    "name": "catalog",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "title",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-5cf6fbc9c33ee570b95b4b2355ab4602",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "title$",
+                    "type": "Observable<string>",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "decorators": [
+                        {
+                            "name": "Select",
+                            "stringifiedArguments": "MealState.title"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { Select } from '@ngxs/store';\nimport { Observable } from 'rxjs';\nimport { MealState } from './state/meal.state';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n\n  @Select(MealState.title) title$: Observable<string>;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./app.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<app-header [title]='title$ | async'></app-header>\r\n<router-outlet></router-outlet>\r\n<footer class='title-font' style='text-align: center;font-size: 1.4rem;'>\r\n    Created by Josue Pacheco - Demo Project\r\n</footer>"
+        },
+        {
+            "name": "CatalogComponent",
+            "id": "component-CatalogComponent-294052874f7cffc904cc3bed452ad68a",
+            "file": "src/app/components/catalog/catalog.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-catalog",
+            "styleUrls": [
+                "./catalog.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./catalog.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-catalog',\n  templateUrl: './catalog.component.html',\n  styleUrls: ['./catalog.component.scss']\n})\nexport class CatalogComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./catalog.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "catalog works"
+        },
+        {
+            "name": "HeaderComponent",
+            "id": "component-HeaderComponent-25dd85f8e2d3ed2c3144beea8aa4a318",
+            "file": "src/app/components/header/header.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-header",
+            "styleUrls": [
+                "./header.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./header.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "'Meal App'",
+                    "line": 15
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { Select } from '@ngxs/store';\nimport { Observable } from 'rxjs';\nimport { MealState } from 'src/app/state/meal.state';\n\n@Component({\n  selector: 'app-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss']\n})\nexport class HeaderComponent implements OnInit {\n\n\n\n  @Input() title = 'Meal App';\n  constructor() { }\n\n  ngOnInit(): void { }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".header {\r\n    background-color: black;\r\n    color: white;\r\n    text-align: center;\r\n    position: relative;\r\n\r\n    &__logo {\r\n        position: absolute;\r\n        top: 25%;\r\n        left: 1rem;\r\n        font-size: 2rem;\r\n        cursor: pointer;\r\n    }\r\n}\r\n",
+                    "styleUrl": "./header.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 15
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class='header title-font'>\n    <mat-icon routerLink=\"/home\" class='header__logo'>menu_book</mat-icon>\n    {{title}}\n</div>"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        },
+                        {
+                            "name": "CatalogComponent"
+                        },
+                        {
+                            "name": "HeaderComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AppRoutingModule"
+                        },
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AppRoutingModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "MaterialModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "Beef",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/header/header.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "Main",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/header/header.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "mock",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/jest-config/__mocks__/globalMocks.ts",
+                "type": "",
+                "defaultValue": "() => {\n    let storage = {};\n    return {\n      getItem: key => (key in storage ? storage[key] : null),\n      setItem: (key, value) => (storage[key] = value || ''),\n      removeItem: key => delete storage[key],\n      clear: () => (storage = {}),\n    };\n  }"
+            },
+            {
+                "name": "Spicy",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/header/header.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/header/header.stories.ts",
+                "type": "Story<HeaderComponent>",
+                "defaultValue": "args => ({\r\n    props: { ...args }\r\n})"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/app/components/header/header.stories.ts": [
+                {
+                    "name": "Beef",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/header/header.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Main",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/header/header.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Spicy",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/header/header.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/header/header.stories.ts",
+                    "type": "Story<HeaderComponent>",
+                    "defaultValue": "args => ({\r\n    props: { ...args }\r\n})"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/jest-config/__mocks__/globalMocks.ts": [
+                {
+                    "name": "mock",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/jest-config/__mocks__/globalMocks.ts",
+                    "type": "",
+                    "defaultValue": "() => {\n    let storage = {};\n    return {\n      getItem: key => (key in storage ? storage[key] : null),\n      setItem: (key, value) => (storage[key] = value || ''),\n      removeItem: key => delete storage[key],\n      clear: () => (storage = {}),\n    };\n  }"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {}
+    },
+    "routes": {
+        "name": "<root>",
+        "kind": "module",
+        "className": "AppModule",
+        "children": [
+            {
+                "name": "routes",
+                "filename": "src/app/app.routing.module.ts",
+                "module": "AppRoutingModule",
+                "children": [
+                    {
+                        "path": "home",
+                        "component": "CatalogComponent"
+                    },
+                    {
+                        "path": "",
+                        "redirectTo": "/home",
+                        "pathMatch": "full"
+                    }
+                ],
+                "kind": "module"
+            }
+        ]
+    },
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/catalog/catalog.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CatalogComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/header/header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Beef",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Main",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Spicy",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/meal.state.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "MealState",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/meal.state.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "MealStateModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/jest-config/__mocks__/globalMocks.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "mock",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}
