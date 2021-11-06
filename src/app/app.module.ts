@@ -12,12 +12,18 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { MealState } from './state/meal.state';
+import { SearchComponent } from './components/search/search.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MealService } from './services/meal.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CatalogComponent,
-    HeaderComponent
+    HeaderComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -27,8 +33,10 @@ import { MealState } from './state/meal.state';
     NgxsModule.forRoot([MealState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [MealService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,18 +1,13 @@
 import { Selector, State } from "@ngxs/store";
-
-export class MealStateModel {
-
-    title: string;
-    catalog: any;
-
-}
+import { MealStateModel } from "../model/meal.model";
 
 
 @State<MealStateModel>({
     name: 'meals',
     defaults: {
         title: 'Meal App',
-        catalog: null
+        catalog: null,
+        options: []
     }
 })
 export class MealState {
