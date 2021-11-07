@@ -1,4 +1,13 @@
 <div class='header title-font'>
     <mat-icon routerLink="/home" class='header__logo'>menu_book</mat-icon>
     <span class='header__title'>{{title}}</span>
+    <div class="header__menu">
+        <span routerLink='/categories ' routerLinkActive="active">Categories</span>
+        <span routerLink='/areas' routerLinkActive="active">Areas</span>
+    </div>
+    <mat-icon class='header__icon' mat-button [matMenuTriggerFor]="menu">menu</mat-icon>
+    <mat-menu class='header__mobile' #menu="matMenu">
+        <button class='header__mobile-button' routerLink='/categories' mat-menu-item>categories</button>
+        <button class='header__mobile-button' routerLink='/areas' mat-menu-item>areas</button>
+    </mat-menu>
 </div>

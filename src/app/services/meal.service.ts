@@ -11,6 +11,10 @@ export class MealService {
   constructor(private http: HttpClient) { }
 
 
+  searchByName(name) {
+    return this.http.get(`${this.API}/search.php?s=${name}`)
+  }
+
   searchByCategory(category) {
     return this.http.get(`${this.API}/filter.php?c=${category}`)
   }
@@ -23,5 +27,16 @@ export class MealService {
     return this.http.get(`${this.API}/filter.php?i=${ingredient}`)
   }
 
+  searchCategories() {
+    return this.http.get(`${this.API}/list.php?c=list`)
+  }
+
+  searchAreas() {
+    return this.http.get(`${this.API}/list.php?a=list`)
+  }
+
+  searchIngredients() {
+    return this.http.get(`${this.API}/list.php?i=list`)
+  }
 
 }

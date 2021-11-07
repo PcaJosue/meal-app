@@ -16,6 +16,8 @@ import { SearchComponent } from './components/search/search.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MealService } from './services/meal.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AreasComponent } from './components/areas/areas.component';
+import { MealsComponent } from './components/meals/meals.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     CatalogComponent,
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
+    AreasComponent,
+    MealsComponent
   ],
   imports: [
     BrowserModule,

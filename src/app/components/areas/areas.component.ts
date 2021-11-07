@@ -4,30 +4,29 @@ import { images, Meal, OptionType } from 'src/app/model/meal.model';
 import { MealService } from 'src/app/services/meal.service';
 
 @Component({
-  selector: 'app-catalog',
-  templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.scss']
+  selector: 'app-areas',
+  templateUrl: './areas.component.html',
+  styleUrls: ['./areas.component.scss']
 })
-export class CatalogComponent implements OnInit {
+export class AreasComponent implements OnInit {
 
   items: Meal[];
   constructor(private mealService: MealService, private router: Router) { }
   ngOnInit(): void {
     setTimeout(async () => {
-      this.items = (await this.mealService.searchCategories().toPromise<any>()).meals?.map(meal => (
+      this.items = (await this.mealService.searchAreas().toPromise<any>()).meals?.map(meal => (
         {
           idMeal: null,
-          strMeal: meal.strCategory,
-          strMealThumb: images[meal.strCategory]
+          strMeal: meal.strArea,
+          strMealThumb: images[meal.strArea]
         }
       ));
     }, 100);
   }
 
   seeItem(item) {
-    this.router.navigate([`/items/${item.strMeal}/${OptionType.category}`])
+    this.router.navigate([`/items/${item.strMeal}/${OptionType.area}`])
   }
-
 
 
 }

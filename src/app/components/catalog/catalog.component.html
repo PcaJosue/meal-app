@@ -1,1 +1,9 @@
-catalog works
+<div class='catalog__container'>
+    <app-search></app-search>
+    <div class='catalog__1'>
+        <div (click)='seeItem(item)' class='catalog__1-item' *ngFor='let item of items'>
+            <img [src]='"../assets/img/"+item.strMealThumb'>
+            <span>{{item.strMeal}}</span>
+        </div>
+    </div>
+</div>

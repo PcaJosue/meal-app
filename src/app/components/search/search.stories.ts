@@ -1,10 +1,10 @@
-import { HttpClientModule } from "@angular/common/http";
+import { APP_BASE_HREF } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { Router } from "@angular/router";
 import { Meta, moduleMetadata, Story } from "@storybook/angular";
+import { AppRoutingModule } from "src/app/app.routing.module";
 import { MaterialModule } from "src/app/material.module";
-import { OptionType } from "src/app/model/meal.model";
-import { MealService } from "src/app/services/meal.service";
 import { SearchComponent } from "./search.component";
 
 export default {
@@ -12,8 +12,8 @@ export default {
     decorators: [
         moduleMetadata({
             declarations: [SearchComponent],
-            imports: [MaterialModule, ReactiveFormsModule, BrowserAnimationsModule, HttpClientModule],
-            providers: [MealService]
+            imports: [MaterialModule, ReactiveFormsModule, BrowserAnimationsModule, AppRoutingModule],
+            providers: [{ provide: APP_BASE_HREF, useValue: '#' }]
         })
     ],
     excludeStories: /.*Data$/,
@@ -26,7 +26,4 @@ const Template: Story<SearchComponent> = args => ({
 })
 
 export const Main = Template.bind({});
-Main.args = {
-    options: ['Beef', 'Chicken', 'Seafood'],
-    type: OptionType.category
-}
+Main.args = {}

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'; // CLI imports router
-import { AppComponent } from './app.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
 
 const routes: Routes = [
-    { path: 'home', component: CatalogComponent },
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'categories', component: CatalogComponent },
+    { path: 'areas', component: CatalogComponent },
+    { path: 'items/:value/:type', component: CatalogComponent },
+    { path: 'item/:value', component: CatalogComponent },
+    { path: '', redirectTo: '/categories', pathMatch: 'full' },
 ]; // sets up routes constant where you define your routes
 
 // configures NgModule imports and exports

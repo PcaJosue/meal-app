@@ -24,23 +24,13 @@ describe('SearchComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SearchComponent);
     component = fixture.componentInstance;
+    component.myControl.setValue('Beef');
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should search categories', () => {
-
-    spyOn(component.onSearch, 'emit');
-    component.myControl.setValue('Beef');
-    component.type = OptionType.category
-    const button = fixture.nativeElement.querySelector('button');
-    button.click();
-    expect(component.onSearch.emit).toHaveBeenCalled();
-
-  })
 
 
 
