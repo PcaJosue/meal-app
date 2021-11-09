@@ -16,7 +16,6 @@ export class MealsComponent implements OnInit {
   constructor(private mealService: MealService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit(): void {
 
-    console.log('route', this.route);
     this.type = this.route.snapshot.params.type;
     this.value = this.route.snapshot.params.value;
 
@@ -29,13 +28,11 @@ export class MealsComponent implements OnInit {
       else if (this.type === OptionType.name)
         this.items = (await this.mealService.searchByName(this.value).toPromise<any>()).meals;
 
-      console.log('items', this.items);
-
     }, 100);
   }
 
   seeItem(item) {
-    this.router.navigate([`/item/${item.strMeal}/${OptionType.category}`])
+    this.router.navigate([`/item/${item.idMeal}`])
   }
 
 }

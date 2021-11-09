@@ -1,0 +1,90 @@
+.item {
+    &__container {
+        padding: 2rem;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    &__left {
+        width: 30%;
+        img {
+            width: 100%;
+        }
+        &-tags {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            flex-wrap: wrap;
+            span {
+                background-color: rgb(15, 15, 15);
+                color: rgb(235, 233, 233);
+                border-radius: 15%;
+                font-size: 1rem;
+                padding: 0.5rem;
+                font-size: 14px;
+            }
+        }
+    }
+
+    &__right {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        &-info {
+            width: 50%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            strong {
+                font-weight: bold;
+            }
+            &-1 {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        &-instructions {
+            display: flex;
+            justify-content: start;
+            align-items: flex-start;
+            width: 70%;
+            gap: 2rem;
+            strong {
+                font-weight: bold;
+                width: 30%;
+            }
+        }
+
+        &-ingredients {
+            width: 80%;
+            align-self: center;
+            &-header {
+                background-color: rgb(8, 8, 8);
+                color: whitesmoke;
+                text-align: center;
+                padding: 0.5rem;
+                font-family: "Qwigley";
+                font-size: 2rem;
+            }
+            &-content {
+                display: flex;
+                flex-direction: column;
+                &-ingredient {
+                    height: 2rem;
+                    display: flex;
+                    justify-content: space-around;
+                    &:nth-child(odd) {
+                        background-color: rgb(197, 195, 195);
+                    }
+                }
+            }
+        }
+    }
+}

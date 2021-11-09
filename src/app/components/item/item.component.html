@@ -1,0 +1,40 @@
+<div class='item__container'>
+
+    <div class='item__left'>
+        <img [src]='item.strMealThumb'>
+        <div class='item__left-tags'>
+            <span *ngFor='let tag of item.strTags?.split(",")'>{{tag}}</span>
+        </div>
+
+    </div>
+    <div class='item__right'>
+        <div class='item__right-info'>
+            <div class="item__right-info-1">
+                <strong>Category:</strong>
+                <span>{{item.strCategory}}</span>
+            </div>
+            <div class="item__right-info-1">
+                <strong>Area:</strong>
+                <span>{{item.strArea}}</span>
+            </div>
+        </div>
+        <div class="item__right-instructions">
+            <strong>Instructions:</strong>
+            <div class='item__right-instructions-text'>
+                {{item.strInstructions}}
+            </div>
+        </div>
+        <div class='item__right-ingredients'>
+            <div class="item__right-ingredients-header">
+                Ingredients
+            </div>
+            <div class="item__right-ingredients-content">
+                <div class="item__right-ingredients-content-ingredient" *ngFor='let ing of ingredients'>
+                    <span>{{ing.ingredient}}</span>
+                    <span>{{ing.measure}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,10 +1,10 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgxsModule } from '@ngxs/store';
 import { AppComponent } from './app.component';
+import { components } from './app.module';
 import { AppRoutingModule } from './app.routing.module';
-import { CatalogComponent } from './components/catalog/catalog.component';
-import { HeaderComponent } from './components/header/header.component';
 import { MaterialModule } from './material.module';
 import { MealState } from './state/meal.state';
 
@@ -14,8 +14,8 @@ describe('App', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent, HeaderComponent, CatalogComponent],
-      imports: [MaterialModule, AppRoutingModule, NgxsModule.forRoot([MealState])],
+      declarations: [...components],
+      imports: [MaterialModule, AppRoutingModule, NgxsModule.forRoot([MealState]), ReactiveFormsModule],
       providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     })
       .compileComponents();

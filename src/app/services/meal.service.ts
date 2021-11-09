@@ -15,6 +15,10 @@ export class MealService {
     return this.http.get(`${this.API}/search.php?s=${name}`)
   }
 
+  searchById(id) {
+    return this.http.get(`${this.API}/lookup.php?i=${id}`)
+  }
+
   searchByCategory(category) {
     return this.http.get(`${this.API}/filter.php?c=${category}`)
   }

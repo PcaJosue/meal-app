@@ -15,7 +15,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "jest --watchAll",
+    "test": "jest --watchAll --unhandled-rejections=strict",
     "lint": "ng lint",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -s ./src/assets -p 6006  ",

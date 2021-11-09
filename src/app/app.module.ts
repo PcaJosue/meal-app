@@ -18,16 +18,23 @@ import { MealService } from './services/meal.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AreasComponent } from './components/areas/areas.component';
 import { MealsComponent } from './components/meals/meals.component';
+import { ItemComponent } from './components/item/item.component';
 
+
+export const components = [
+  AppComponent,
+  CatalogComponent,
+  HeaderComponent,
+  SearchComponent,
+  AreasComponent,
+  MealsComponent,
+  ItemComponent
+];
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CatalogComponent,
-    HeaderComponent,
-    SearchComponent,
-    AreasComponent,
-    MealsComponent
+    ...components
+
   ],
   imports: [
     BrowserModule,

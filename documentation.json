@@ -4,7 +4,7 @@
     "injectables": [
         {
             "name": "MealService",
-            "id": "injectable-MealService-dde51ba6d248a96ce0a03927e1ad24d7",
+            "id": "injectable-MealService-72c920f2156cbca3634ed822ae917814",
             "file": "src/app/services/meal.service.ts",
             "properties": [
                 {
@@ -23,7 +23,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 34
+                    "line": 38
                 },
                 {
                     "name": "searchByArea",
@@ -36,7 +36,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 22,
+                    "line": 26,
                     "jsdoctags": [
                         {
                             "name": "area",
@@ -58,10 +58,32 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 18,
+                    "line": 22,
                     "jsdoctags": [
                         {
                             "name": "category",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "searchById",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 18,
+                    "jsdoctags": [
+                        {
+                            "name": "id",
                             "type": "",
                             "tagName": {
                                 "text": "param"
@@ -80,7 +102,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 26,
+                    "line": 30,
                     "jsdoctags": [
                         {
                             "name": "ingredient",
@@ -119,7 +141,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 30
+                    "line": 34
                 },
                 {
                     "name": "searchIngredients",
@@ -127,11 +149,11 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 38
+                    "line": 42
                 }
             ],
             "description": "",
-            "sourceCode": "import { HttpClient } from '@angular/common/http';\nimport { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class MealService {\n\n\n  API = 'https://www.themealdb.com/api/json/v1/1';\n  constructor(private http: HttpClient) { }\n\n\n  searchByName(name) {\n    return this.http.get(`${this.API}/search.php?s=${name}`)\n  }\n\n  searchByCategory(category) {\n    return this.http.get(`${this.API}/filter.php?c=${category}`)\n  }\n\n  searchByArea(area) {\n    return this.http.get(`${this.API}/filter.php?a=${area}`)\n  }\n\n  searchByMainIngredient(ingredient) {\n    return this.http.get(`${this.API}/filter.php?i=${ingredient}`)\n  }\n\n  searchCategories() {\n    return this.http.get(`${this.API}/list.php?c=list`)\n  }\n\n  searchAreas() {\n    return this.http.get(`${this.API}/list.php?a=list`)\n  }\n\n  searchIngredients() {\n    return this.http.get(`${this.API}/list.php?i=list`)\n  }\n\n}\n",
+            "sourceCode": "import { HttpClient } from '@angular/common/http';\nimport { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class MealService {\n\n\n  API = 'https://www.themealdb.com/api/json/v1/1';\n  constructor(private http: HttpClient) { }\n\n\n  searchByName(name) {\n    return this.http.get(`${this.API}/search.php?s=${name}`)\n  }\n\n  searchById(id) {\n    return this.http.get(`${this.API}/lookup.php?i=${id}`)\n  }\n\n  searchByCategory(category) {\n    return this.http.get(`${this.API}/filter.php?c=${category}`)\n  }\n\n  searchByArea(area) {\n    return this.http.get(`${this.API}/filter.php?a=${area}`)\n  }\n\n  searchByMainIngredient(ingredient) {\n    return this.http.get(`${this.API}/filter.php?i=${ingredient}`)\n  }\n\n  searchCategories() {\n    return this.http.get(`${this.API}/list.php?c=list`)\n  }\n\n  searchAreas() {\n    return this.http.get(`${this.API}/list.php?a=list`)\n  }\n\n  searchIngredients() {\n    return this.http.get(`${this.API}/list.php?i=list`)\n  }\n\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -610,8 +632,112 @@
             "templateData": "<div class='header title-font'>\n    <mat-icon routerLink=\"/home\" class='header__logo'>menu_book</mat-icon>\n    <span class='header__title'>{{title}}</span>\n    <div class=\"header__menu\">\n        <span routerLink='/categories ' routerLinkActive=\"active\">Categories</span>\n        <span routerLink='/areas' routerLinkActive=\"active\">Areas</span>\n    </div>\n    <mat-icon class='header__icon' mat-button [matMenuTriggerFor]=\"menu\">menu</mat-icon>\n    <mat-menu class='header__mobile' #menu=\"matMenu\">\n        <button class='header__mobile-button' routerLink='/categories' mat-menu-item>categories</button>\n        <button class='header__mobile-button' routerLink='/areas' mat-menu-item>areas</button>\n    </mat-menu>\n</div>"
         },
         {
+            "name": "ItemComponent",
+            "id": "component-ItemComponent-d82b86f3f8e6521b6e104640f4099f0a",
+            "file": "src/app/components/item/item.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-item",
+            "styleUrls": [
+                "./item.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./item.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "id",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "ingredients",
+                    "defaultValue": "[]",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "item",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { ActivatedRoute } from '@angular/router';\nimport { MealService } from 'src/app/services/meal.service';\n\n@Component({\n  selector: 'app-item',\n  templateUrl: './item.component.html',\n  styleUrls: ['./item.component.scss']\n})\nexport class ItemComponent implements OnInit {\n\n  item: any;\n  ingredients: any = [];\n  id: string;\n  constructor(private mealService: MealService, private route: ActivatedRoute) { }\n\n  ngOnInit(): void {\n    // this.id = this.route.snapshot.params.id;\n    // setTimeout(async () => {\n    //   this.item = (await this.mealService.searchById(this.id).toPromise<any>()).meals[0];\n    //   let i = 1;\n    //   while (this.item[`strIngredient${i}`]) {\n    //     this.ingredients.push({ ingredient: this.item[`strIngredient${i}`], measure: this.item[`strMeasure${i}`] })\n    //     i++;\n    //   }\n    // }, 100);\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".item {\r\n    &__container {\r\n        padding: 2rem;\r\n        display: flex;\r\n        flex-direction: row;\r\n        gap: 2rem;\r\n    }\r\n\r\n    &__left {\r\n        width: 30%;\r\n        img {\r\n            width: 100%;\r\n        }\r\n        &-tags {\r\n            margin-top: 1.5rem;\r\n            display: flex;\r\n            flex-direction: row;\r\n            gap: 5px;\r\n            flex-wrap: wrap;\r\n            span {\r\n                background-color: rgb(15, 15, 15);\r\n                color: rgb(235, 233, 233);\r\n                border-radius: 15%;\r\n                font-size: 1rem;\r\n                padding: 0.5rem;\r\n                font-size: 14px;\r\n            }\r\n        }\r\n    }\r\n\r\n    &__right {\r\n        width: 70%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        gap: 1.5rem;\r\n\r\n        &-info {\r\n            width: 50%;\r\n            display: flex;\r\n            flex-direction: row;\r\n            justify-content: space-between;\r\n            strong {\r\n                font-weight: bold;\r\n            }\r\n            &-1 {\r\n                display: flex;\r\n                gap: 10px;\r\n                justify-content: center;\r\n                align-items: center;\r\n            }\r\n        }\r\n\r\n        &-instructions {\r\n            display: flex;\r\n            justify-content: start;\r\n            align-items: flex-start;\r\n            width: 70%;\r\n            gap: 2rem;\r\n            strong {\r\n                font-weight: bold;\r\n                width: 30%;\r\n            }\r\n        }\r\n\r\n        &-ingredients {\r\n            width: 80%;\r\n            align-self: center;\r\n            &-header {\r\n                background-color: rgb(8, 8, 8);\r\n                color: whitesmoke;\r\n                text-align: center;\r\n                padding: 0.5rem;\r\n                font-family: \"Qwigley\";\r\n                font-size: 2rem;\r\n            }\r\n            &-content {\r\n                display: flex;\r\n                flex-direction: column;\r\n                &-ingredient {\r\n                    height: 2rem;\r\n                    display: flex;\r\n                    justify-content: space-around;\r\n                    &:nth-child(odd) {\r\n                        background-color: rgb(197, 195, 195);\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}\r\n",
+                    "styleUrl": "./item.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "mealService",
+                        "type": "MealService"
+                    },
+                    {
+                        "name": "route",
+                        "type": "ActivatedRoute"
+                    }
+                ],
+                "line": 14,
+                "jsdoctags": [
+                    {
+                        "name": "mealService",
+                        "type": "MealService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "route",
+                        "type": "ActivatedRoute",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class='item__container'>\n\n    <div class='item__left'>\n        <img [src]='item.strMealThumb'>\n        <div class='item__left-tags'>\n            <span *ngFor='let tag of item.strTags.split(\",\")'>{{tag}}</span>\n        </div>\n\n    </div>\n    <div class='item__right'>\n        <div class='item__right-info'>\n            <div class=\"item__right-info-1\">\n                <strong>Category:</strong>\n                <span>{{item.strCategory}}</span>\n            </div>\n            <div class=\"item__right-info-1\">\n                <strong>Area:</strong>\n                <span>{{item.strArea}}</span>\n            </div>\n        </div>\n        <div class=\"item__right-instructions\">\n            <strong>Instructions:</strong>\n            <div class='item__right-instructions-text'>\n                {{item.strInstructions}}\n            </div>\n        </div>\n        <div class='item__right-ingredients'>\n            <div class=\"item__right-ingredients-header\">\n                Ingredients\n            </div>\n            <div class=\"item__right-ingredients-content\">\n                <div class=\"item__right-ingredients-content-ingredient\" *ngFor='let ing of ingredients'>\n                    <span>{{ing.ingredient}}</span>\n                    <span>{{ing.measure}}</span>\n                </div>\n            </div>\n        </div>\n    </div>\n\n</div>"
+        },
+        {
             "name": "MealsComponent",
-            "id": "component-MealsComponent-0b3435e4ceb258172a013274fa1ec677",
+            "id": "component-MealsComponent-c810ecc9ac621155eb7ca1978f21773a",
             "file": "src/app/components/meals/meals.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -689,11 +815,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { ActivatedRoute, Router } from '@angular/router';\nimport { images, Meal, OptionType } from 'src/app/model/meal.model';\nimport { MealService } from 'src/app/services/meal.service';\n\n@Component({\n  selector: 'app-meals',\n  templateUrl: './meals.component.html',\n  styleUrls: ['./meals.component.scss']\n})\nexport class MealsComponent implements OnInit {\n\n  items: any;\n  type: string;\n  value: string;\n  constructor(private mealService: MealService, private router: Router, private route: ActivatedRoute) { }\n  ngOnInit(): void {\n\n    console.log('route', this.route);\n    this.type = this.route.snapshot.params.type;\n    this.value = this.route.snapshot.params.value;\n\n    setTimeout(async () => {\n\n      if (this.type === OptionType.category)\n        this.items = await this.mealService.searchByCategory(this.value).toPromise();\n      else if (this.type === OptionType.area)\n        this.items = await this.mealService.searchByArea(this.value).toPromise();\n      else if (this.type === OptionType.name)\n        this.items = await this.mealService.searchByName(this.value).toPromise();\n\n    }, 100);\n  }\n\n  seeItem(item) {\n    this.router.navigate([`/item/${item.strMeal}/${OptionType.category}`])\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { ActivatedRoute, Router } from '@angular/router';\nimport { images, Meal, OptionType } from 'src/app/model/meal.model';\nimport { MealService } from 'src/app/services/meal.service';\n\n@Component({\n  selector: 'app-meals',\n  templateUrl: './meals.component.html',\n  styleUrls: ['./meals.component.scss']\n})\nexport class MealsComponent implements OnInit {\n\n  items: any;\n  type: string;\n  value: string;\n  constructor(private mealService: MealService, private router: Router, private route: ActivatedRoute) { }\n  ngOnInit(): void {\n\n    this.type = this.route.snapshot.params.type;\n    this.value = this.route.snapshot.params.value;\n\n    setTimeout(async () => {\n\n      if (this.type === OptionType.category)\n        this.items = (await this.mealService.searchByCategory(this.value).toPromise<any>()).meals;\n      else if (this.type === OptionType.area)\n        this.items = (await this.mealService.searchByArea(this.value).toPromise<any>()).meals;\n      else if (this.type === OptionType.name)\n        this.items = (await this.mealService.searchByName(this.value).toPromise<any>()).meals;\n\n      console.log('items', this.items);\n    }, 100);\n  }\n\n  seeItem(item) {\n    this.router.navigate([`/item/${item.strMeal}`])\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".meals {\r\n    &__list {\r\n        display: flex;\r\n        flex-direction: row;\r\n        flex-wrap: wrap;\r\n        gap: 0.5rem;\r\n        justify-content: center;\r\n        &-item {\r\n            display: flex;\r\n\r\n            flex-direction: column;\r\n            justify-content: center;\r\n            align-items: center;\r\n            width: 30%;\r\n\r\n            img {\r\n                width: 85%;\r\n                height: 85%;\r\n            }\r\n            span {\r\n                font-family: \"Qwigley\";\r\n                font-size: 2rem;\r\n                font-weight: bold;\r\n            }\r\n\r\n            &:hover {\r\n                cursor: pointer;\r\n                background-color: rgb(228, 228, 227);\r\n                transform: translateY(-3px);\r\n                box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);\r\n            }\r\n\r\n            @media (max-width: 500px) {\r\n                width: 48%;\r\n            }\r\n        }\r\n    }\r\n}\r\n",
                     "styleUrl": "./meals.component.scss"
                 }
             ],
@@ -743,7 +869,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class='meals__container'>\n    <app-search></app-search>\n    <div class='meals__list'>\n        <div (click)='seeItem(item)' class='meals__list-item' *ngFor='let item of items'>\n            <img [src]='\"../assets/img/\"+item.strMealThumb'>\n            <span>{{item.strMeal}}</span>\n        </div>\n    </div>\n</div>"
+            "templateData": "<div class='meals__container'>\n    <app-search></app-search>\n    <div class='meals__list'>\n        <div (click)='seeItem(item)' class='meals__list-item' *ngFor='let item of items'>\n            <img [src]='item.strMealThumb'>\n            <span>{{item.strMeal}}</span>\n        </div>\n    </div>\n</div>"
         },
         {
             "name": "SearchComponent",
@@ -868,6 +994,9 @@
                             "name": "HeaderComponent"
                         },
                         {
+                            "name": "ItemComponent"
+                        },
+                        {
                             "name": "MealsComponent"
                         },
                         {
@@ -974,12 +1103,12 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "environment",
+                "name": "components",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
-                "type": "object",
-                "defaultValue": "{\n  production: false\n}"
+                "file": "src/app/app.module.ts",
+                "type": "[]",
+                "defaultValue": "[\n  AppComponent,\n  CatalogComponent,\n  HeaderComponent,\n  SearchComponent,\n  AreasComponent,\n  MealsComponent,\n  ItemComponent\n]"
             },
             {
                 "name": "environment",
@@ -988,6 +1117,14 @@
                 "file": "src/environments/environment.prod.ts",
                 "type": "object",
                 "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "images",
@@ -1001,14 +1138,6 @@
                 "name": "Main",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/areas/areas.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Main",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/components/catalog/catalog.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -1017,7 +1146,15 @@
                 "name": "Main",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/header/header.stories.ts",
+                "file": "src/app/components/areas/areas.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Main",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/item/item.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1026,6 +1163,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/components/meals/meals.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Main",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/header/header.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1057,14 +1202,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/areas/areas.stories.ts",
-                "type": "Story<AreasComponent>",
-                "defaultValue": "args => ({\r\n    props: { ...args }\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/components/catalog/catalog.stories.ts",
                 "type": "Story<CatalogComponent>",
                 "defaultValue": "args => ({\r\n    props: { ...args }\r\n})"
@@ -1073,8 +1210,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/header/header.stories.ts",
-                "type": "Story<HeaderComponent>",
+                "file": "src/app/components/areas/areas.stories.ts",
+                "type": "Story<AreasComponent>",
+                "defaultValue": "args => ({\r\n    props: { ...args }\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/item/item.stories.ts",
+                "type": "Story<ItemComponent>",
                 "defaultValue": "args => ({\r\n    props: { ...args }\r\n})"
             },
             {
@@ -1083,6 +1228,14 @@
                 "subtype": "variable",
                 "file": "src/app/components/meals/meals.stories.ts",
                 "type": "Story<MealsComponent>",
+                "defaultValue": "args => ({\r\n    props: { ...args }\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/header/header.stories.ts",
+                "type": "Story<HeaderComponent>",
                 "defaultValue": "args => ({\r\n    props: { ...args }\r\n})"
             },
             {
@@ -1158,14 +1311,14 @@
                     "defaultValue": "args => ({\r\n    props: { ...args }\r\n})"
                 }
             ],
-            "src/environments/environment.ts": [
+            "src/app/app.module.ts": [
                 {
-                    "name": "environment",
+                    "name": "components",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
+                    "file": "src/app/app.module.ts",
+                    "type": "[]",
+                    "defaultValue": "[\n  AppComponent,\n  CatalogComponent,\n  HeaderComponent,\n  SearchComponent,\n  AreasComponent,\n  MealsComponent,\n  ItemComponent\n]"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -1178,6 +1331,16 @@
                     "defaultValue": "{\n  production: true\n}"
                 }
             ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
+                }
+            ],
             "src/app/model/meal.model.ts": [
                 {
                     "name": "images",
@@ -1186,6 +1349,24 @@
                     "file": "src/app/model/meal.model.ts",
                     "type": "object",
                     "defaultValue": "{\r\n    'Beef': 'Beef.jpeg',\r\n    'Breakfast': 'Breakfast.jpg',\r\n    'Chicken': 'Chicken.jfif',\r\n    'Dessert': 'Dessert.jfif',\r\n    \"Goat\": 'Goat.jpeg',\r\n    \"Lamb\": 'Lamb.jfif',\r\n    \"Miscellaneous\": 'Miscellaneous.jpg',\r\n    'Pasta': 'Pasta.jfif',\r\n    'Pork': 'Pork.jpg',\r\n    'Seafood': 'Seafood.jpg',\r\n    'Side': 'Side.jpg',\r\n    'Starter': 'Starter.jfif',\r\n    'Vegan': 'Vegan.jfif',\r\n    'Vegetarian': 'Vegetarian.jfif'\r\n}"
+                }
+            ],
+            "src/app/components/catalog/catalog.stories.ts": [
+                {
+                    "name": "Main",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/catalog/catalog.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/catalog/catalog.stories.ts",
+                    "type": "Story<CatalogComponent>",
+                    "defaultValue": "args => ({\r\n    props: { ...args }\r\n})"
                 }
             ],
             "src/app/components/areas/areas.stories.ts": [
@@ -1206,12 +1387,12 @@
                     "defaultValue": "args => ({\r\n    props: { ...args }\r\n})"
                 }
             ],
-            "src/app/components/catalog/catalog.stories.ts": [
+            "src/app/components/item/item.stories.ts": [
                 {
                     "name": "Main",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/catalog/catalog.stories.ts",
+                    "file": "src/app/components/item/item.stories.ts",
                     "type": "",
                     "defaultValue": "Template.bind({})"
                 },
@@ -1219,8 +1400,8 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/catalog/catalog.stories.ts",
-                    "type": "Story<CatalogComponent>",
+                    "file": "src/app/components/item/item.stories.ts",
+                    "type": "Story<ItemComponent>",
                     "defaultValue": "args => ({\r\n    props: { ...args }\r\n})"
                 }
             ],
@@ -1319,19 +1500,19 @@
                     },
                     {
                         "path": "areas",
-                        "component": "CatalogComponent"
+                        "component": "AreasComponent"
                     },
                     {
                         "path": "items/:value/:type",
-                        "component": "CatalogComponent"
+                        "component": "MealsComponent"
                     },
                     {
-                        "path": "item/:value",
-                        "component": "CatalogComponent"
+                        "path": "item/:id",
+                        "component": "ItemComponent"
                     },
                     {
                         "path": "",
-                        "redirectTo": "/categories",
+                        "redirectTo": "categories",
                         "pathMatch": "full"
                     }
                 ],
@@ -1350,6 +1531,16 @@
                 "name": "AppComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.module.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "components",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -1460,6 +1651,35 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/components/item/item.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ItemComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/item/item.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Main",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/item/item.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/components/meals/meals.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -1551,7 +1771,7 @@
                 "linktype": "injectable",
                 "name": "MealService",
                 "coveragePercent": 0,
-                "coverageCount": "0/10",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
