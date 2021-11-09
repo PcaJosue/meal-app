@@ -1,4 +1,4 @@
-<div class='item__container'>
+<div class='item__container' *ngIf='item'>
 
     <div class='item__left'>
         <img [src]='item.strMealThumb'>
@@ -21,7 +21,7 @@
         <div class="item__right-instructions">
             <strong>Instructions:</strong>
             <div class='item__right-instructions-text'>
-                {{item.strInstructions}}
+                <div [innerText]='item.strInstructions'></div>
             </div>
         </div>
         <div class='item__right-ingredients'>

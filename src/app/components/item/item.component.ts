@@ -12,6 +12,7 @@ export class ItemComponent implements OnInit {
   item: any;
   ingredients: any = [];
   id: string;
+  instructions: string[] = [];
   constructor(private mealService: MealService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -19,11 +20,11 @@ export class ItemComponent implements OnInit {
     setTimeout(async () => {
       this.item = (await this.mealService.searchById(this.id).toPromise<any>()).meals[0];
       let i = 1;
-      console.log(this.item);
       while (this.item[`strIngredient${i}`]) {
         this.ingredients.push({ ingredient: this.item[`strIngredient${i}`], measure: this.item[`strMeasure${i}`] })
         i++;
       }
+
     }, 100);
   }
 
