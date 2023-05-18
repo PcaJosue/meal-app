@@ -14,7 +14,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production --base-href=/meal-app/ ",
+    "deploy": "npx angular-cli-ghpages --dir=dist/meal-app",
     "test": "jest --watchAll --unhandled-rejections=strict",
     "lint": "ng lint",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",

@@ -12,8 +12,7 @@ export class CatalogComponent implements OnInit {
 
   items: Meal[];
   constructor(private mealService: MealService, private router: Router) { }
-  ngOnInit(): void {
-    setTimeout(async () => {
+  async ngOnInit() {
       this.items = (await this.mealService.searchCategories().toPromise<any>()).meals?.map(meal => (
         {
           idMeal: null,
@@ -21,7 +20,6 @@ export class CatalogComponent implements OnInit {
           strMealThumb: images[meal.strCategory]
         }
       ));
-    }, 100);
   }
 
   seeItem(item) {
