@@ -1,103 +1,78 @@
+# Angular Application
 
-Demo App:
-consume a API of meals
+This Angular application is designed to showcase the functionality provided by the MealDB API. The application utilizes various API methods to retrieve meal data and display it to the users.
 
+## API Functionality
 
-<h1 align="center">
-  Chromatic's Intro to Storybook Angular template
-</h1>
+The MealDB API offers the following methods:
 
-This template ships with the main Angular and Storybook configuration files you'll need to get up and running fast.
+1. **Search meal by name**
+   - Method: `GET`
+   - URL: `www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata`
+   - Description: Retrieves meals matching the provided name.
 
-## 🚅  Quick start
+2. **List all meals by first letter**
+   - Method: `GET`
+   - URL: `www.themealdb.com/api/json/v1/1/search.php?f=a`
+   - Description: Retrieves a list of meals starting with the specified letter.
 
-1.  **Create the application.**
+3. **Lookup full meal details by ID**
+   - Method: `GET`
+   - URL: `www.themealdb.com/api/json/v1/1/lookup.php?i=52772`
+   - Description: Retrieves detailed information about a meal based on its ID.
 
-    Use [degit](https://github.com/Rich-Harris/degit) to get this template.
+4. **Lookup a single random meal**
+   - Method: `GET`
+   - URL: `www.themealdb.com/api/json/v1/1/random.php`
+   - Description: Retrieves a randomly selected meal.
 
-    ```shell
-    # Clone the template
-    npx degit chromaui/intro-storybook-angular-template taskbox
-    ```
+5. **List all meal categories**
+   - Method: `GET`
+   - URL: `www.themealdb.com/api/json/v1/1/categories.php`
+   - Description: Retrieves a list of all meal categories.
 
-1.  **Install the dependencies.**
+6. **Latest Meals**
+   - Method: `GET`
+   - URL: `www.themealdb.com/api/json/v1/1/latest.php`
+   - Description: Retrieves the latest meals available.
 
-    Navigate into your new site’s directory and install the necessary dependencies.
+7. **List all Categories, Area, Ingredients**
+   - Method: `GET`
+   - URLs:
+     - `www.themealdb.com/api/json/v1/1/list.php?c=list`
+     - `www.themealdb.com/api/json/v1/1/list.php?a=list`
+     - `www.themealdb.com/api/json/v1/1/list.php?i=list`
+   - Description: Retrieves lists of all meal categories, areas, and ingredients.
 
-    ```shell
-    # Navigate to the directory
-    cd taskbox/
+8. **Filter by main ingredient**
+   - Method: `GET`
+   - URL: `www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast`
+   - Description: Retrieves meals that contain the specified main ingredient.
 
-    # Install the dependencies
-    npm install
-    ```
+9. **Filter by Category**
+   - Method: `GET`
+   - URL: `www.themealdb.com/api/json/v1/1/filter.php?c=Seafood`
+   - Description: Retrieves meals belonging to the specified category.
 
-1.  **Open the source code and start editing!**
+10. **Filter by Area**
+    - Method: `GET`
+    - URL: `www.themealdb.com/api/json/v1/1/filter.php?a=Canadian`
+    - Description: Retrieves meals from the specified area.
 
-    Open the `taskbox` directory in your code editor of choice and building your first component!
+## Image URLs
 
-1.  **Browse your stories!**
+The MealDB API also provides image URLs for meal thumbnails and ingredient thumbnails. These can be used to enhance the visual presentation of the application.
 
-    Run `npm run storybook` to see your component's stories at `http://localhost:6006`.
+- **Meal Thumbnail Images**
+  - URL: `www.themealdb.com/images/media/meals/llcbn01574260722.jpg/preview`
+  - Description: Displays a thumbnail image of a meal. Append `/preview` to the end of the image URL.
 
-## 🔎 What's inside?
+- **Ingredient Thumbnail Images**
+  - URLs:
+    - `www.themealdb.com/images/ingredients/Lime.png`
+    - `www.themealdb.com/images/ingredients/Lime-Small.png`
+  - Description: Displays thumbnail images of ingredients.
 
-A quick look at the top-level files and directories included with this template.
+## Usage
 
-    .
-    ├── .storybook
-    ├── node_modules
-    ├── src
-    ├── .browserslistrc
-    ├── .editorconfig
-    ├── .gitignore
-    ├── angular.json
-    ├── babel.config.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    ├── tsconfig.app.json
-    ├── tsconfig.json
-    ├── tsconfig.spec.json
-    ├── tslint.json
-    └── README.md
-
-
-1.  **`.storybook`**: This directory contains Storybook's [configuration](https://storybook.js.org/docs/react/configure/overview) files.
-
-2.  **`node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages).
-
-3.  **`src`**: This directory will contain all of the code related to what you will see on your application.
-
-4.  **`.browserslistrc`**: This file will contain the information regarding which browsers will be supported when the application is built.
-
-5.  **`.editorconfig`**: This file contains the configurations for [EditorConfig](https://editorconfig.org/).
-
-6. **`.gitignore`**: This file tells git which files it should not track or maintain during the development process of your project.
-
-7.  **`angular.json`**: This file contains all the configurations required for your Angular project.
-
-8.  **`.babel.config.js`**: This file tells [babel](https://babeljs.io/) how to transpile the application's code.
-
-9. **`LICENSE`**: The template is licensed under the MIT licence.
-
-10. **`package-lock.json`**: This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(Do not change it manually).**
-
-11. **`package.json`**: Standard manifest file for Node.js projects, which typically includes project specific metadata (such as the project's name, the author among other information). It's based on this file that npm will know which packages are necessary to the project.
-
-12. **`tsconfig.app.json`**: This file contains auxiliary configurations for your Angular project.
-
-13. **`tsconfig.json`**: This file contains configurations the required configurations for TypeScript.
-
-14. **`tsconfig.spec.json`**: This is a TypeScript configuration file aimed for application testing.
-
-
-## Contribute
-
-If you encounter an issue with the template, we encourage you to open an issue in this template's repository.
-
-## Learning Storybook
-
-1. Read our introductory tutorial at [Learn Storybook](https://storybook.js.org/tutorials/intro-to-storybook/angular/en/get-started/).
-2. Learn how to transform your component libraries into design systems in our [Design Systems for Developers](https://storybook.js.org/tutorials/design-systems-for-developers/) tutorial.
-2. See our official documentation at [Storybook](https://storybook.js.org/).
+To use the API methods in your Angular application, you can make HTTP requests
